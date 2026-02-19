@@ -1,157 +1,124 @@
 import { motion } from 'framer-motion'
-import { Sparkles, ChevronRight, ShieldCheck, Star } from 'lucide-react'
+import { Sparkles, ChevronRight, ShieldCheck, Heart } from 'lucide-react'
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-bg-warm pt-8 pb-20">
+    <section id="home" className="relative min-h-[90vh] flex items-center overflow-hidden bg-bg-cool pt-24 pb-32">
 
-      {/* ── Decorative blobs ── */}
-      <div className="blob w-[500px] h-[500px] bg-primary/20 top-[-80px] right-[-100px]" style={{ animationDelay: '0s' }} />
-      <div className="blob w-[350px] h-[350px] bg-secondary/25 bottom-[-60px] left-[-80px]" style={{ animationDelay: '3s' }} />
-      <div className="blob w-[250px] h-[250px] bg-accent/40 top-[40%] left-[30%]" style={{ animationDelay: '1.5s' }} />
+      {/* ── Background Elements ── */}
+      <div className="blob w-[700px] h-[700px] bg-secondary/10 top-[-10%] right-[-10%]" />
+      <div className="blob w-[500px] h-[500px] bg-accent/20 bottom-[-5%] left-[-5%]" />
+      <div className="absolute inset-0 radial-glow opacity-60" />
 
-      <div className="container mx-auto px-4 md:px-8 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center gap-20">
 
-          {/* ── Left: Text ── */}
-          <div className="w-full lg:w-1/2 text-center lg:text-left">
+          {/* ── Text Content ── */}
+          <div className="w-full lg:w-3/5 text-center lg:text-left">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold mb-8 text-primary"
-              style={{ background: 'rgba(232,86,58,0.1)', backdropFilter: 'blur(8px)', border: '1px solid rgba(232,86,58,0.2)' }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              className="inline-flex items-center gap-3 px-5 py-2 rounded-full text-[11px] font-black uppercase tracking-[0.25em] text-secondary mb-10 bg-white/60 backdrop-blur-md border border-white"
             >
-              <Sparkles size={14} />
-              Established Since 2010
+              <Sparkles size={14} className="text-secondary" />
+              Premium Fabric Care Since 2010
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-5xl md:text-7xl font-black text-slate-900 leading-[1.05] mb-6 tracking-tight"
+              transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="text-6xl md:text-7xl lg:text-[100px] font-black text-slate-800 leading-[0.9] mb-10 tracking-tighter"
             >
-              Your fabric's <br />
-              <span className="text-primary">favourite</span> <br />
-              clean.
+              Purely <br />
+              <span className="text-primary">Brilliant.</span> <br />
+              Extra Fresh.
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.35 }}
-              className="text-lg text-slate-500 max-w-md mx-auto lg:mx-0 mb-10 leading-relaxed"
+              transition={{ delay: 0.4, duration: 1 }}
+              className="text-xl text-slate-500 max-w-lg mx-auto lg:mx-0 mb-14 leading-relaxed font-medium"
             >
-              High-performance detergent cakes and powders crafted for superior whiteness and gentle fabric care.
+              High-performance laundry solutions meticulously engineered for superior whiteness and gentle hygiene.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="flex flex-wrap gap-4 justify-center lg:justify-start mb-12"
+              transition={{ delay: 0.6 }}
+              className="flex flex-wrap gap-5 justify-center lg:justify-start"
             >
               <button
                 onClick={() => document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' })}
-                className="btn btn-primary text-base px-10 py-4"
+                className="btn btn-primary px-12 py-5 text-lg"
               >
-                Explore Products <ChevronRight size={18} />
+                Shop Collection
               </button>
-              <button className="btn btn-glass text-base px-8 py-4">
-                Our Story
+              <button className="flex items-center gap-3 font-black text-slate-400 hover:text-slate-600 transition-colors text-lg group">
+                Quality Labs <ChevronRight size={22} className="group-hover:translate-x-1 transition-transform" />
               </button>
-            </motion.div>
-
-            {/* Stats row */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.65 }}
-              className="flex flex-wrap gap-6 justify-center lg:justify-start"
-            >
-              {[
-                { value: '25+', label: 'Products' },
-                { value: '500+', label: 'Distributors' },
-                { value: '15yr', label: 'Experience' },
-              ].map(s => (
-                <div key={s.label} className="text-center lg:text-left">
-                  <div className="text-2xl font-black text-slate-900">{s.value}</div>
-                  <div className="text-xs font-semibold text-slate-400 uppercase tracking-widest">{s.label}</div>
-                </div>
-              ))}
             </motion.div>
           </div>
 
-          {/* ── Right: Product image in glass frame ── */}
-          <div className="w-full lg:w-1/2 relative flex justify-center">
-            {/* Main glass card */}
+          {/* ── Product Visual with Glow ── */}
+          <div className="w-full lg:w-2/5 relative flex justify-center">
             <motion.div
-              initial={{ opacity: 0, scale: 0.85, y: 30 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.9, type: 'spring', bounce: 0.3 }}
+              initial={{ opacity: 0, x: 50, scale: 0.9 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
               className="relative w-full max-w-md"
             >
-              <div
-                className="rounded-[40px] p-6 relative overflow-hidden"
-                style={{
-                  background: 'rgba(255,255,255,0.4)',
-                  backdropFilter: 'blur(24px)',
-                  WebkitBackdropFilter: 'blur(24px)',
-                  border: '1px solid rgba(255,255,255,0.7)',
-                  boxShadow: '0 20px 60px rgba(232,86,58,0.15), 0 4px 20px rgba(0,0,0,0.06)',
-                }}
-              >
-                <img
-                  src="/img/home_screen.png"
-                  alt="Akshar Featured Product"
-                  className="w-full h-auto object-contain rounded-[28px] hover:scale-105 transition-transform duration-700"
-                />
+              {/* Radial Light Glow */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] radial-glow animate-pulse pointer-events-none z-0" style={{ animationDuration: '4s' }} />
+
+              {/* Product Showcase */}
+              <div className="relative z-10 p-4">
+                <motion.div
+                  animate={{ y: [0, -15, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                  className="relative drop-shadow-[0_40px_80px_rgba(14,165,233,0.15)]"
+                >
+                  <img
+                    src="/img/home_screen.png"
+                    alt="Akshar Featured Product"
+                    className="w-full h-auto object-contain hover:scale-105 transition-transform duration-1000 ease-out"
+                  />
+                </motion.div>
+                
+                {/* Minimal Badges */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 1.2 }}
+                  className="absolute top-[10%] -right-12 p-5 rounded-3xl bg-white/80 backdrop-blur-xl border border-white shadow-2xl hidden md:flex items-center gap-4"
+                >
+                  <div className="w-12 h-12 rounded-2xl bg-cyan-50 flex items-center justify-center text-cyan-500">
+                    <ShieldCheck size={24} />
+                  </div>
+                  <div>
+                    <div className="font-black text-slate-800 text-sm tracking-tight">ISO-Certified Labs</div>
+                    <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Global Standards</div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 1.4 }}
+                  className="absolute bottom-[20%] -left-12 p-5 rounded-3xl bg-white/80 backdrop-blur-xl border border-white shadow-2xl hidden md:flex items-center gap-4"
+                >
+                  <div className="w-12 h-12 rounded-2xl bg-rose-50 flex items-center justify-center text-rose-500">
+                    <Heart size={22} fill="currentColor" />
+                  </div>
+                  <div>
+                    <div className="font-black text-slate-800 text-sm tracking-tight">Kind to Fabric</div>
+                    <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Gentle Formula</div>
+                  </div>
+                </motion.div>
               </div>
-
-              {/* Floating badge — Quality */}
-              <motion.div
-                animate={{ y: [0, -12, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -top-6 -left-6 p-4 rounded-2xl hidden md:flex items-center gap-3"
-                style={{
-                  background: 'rgba(255,255,255,0.7)',
-                  backdropFilter: 'blur(16px)',
-                  WebkitBackdropFilter: 'blur(16px)',
-                  border: '1px solid rgba(255,255,255,0.9)',
-                  boxShadow: '0 8px 24px rgba(0,0,0,0.08)',
-                }}
-              >
-                <div className="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center text-green-600">
-                  <ShieldCheck size={20} />
-                </div>
-                <div>
-                  <div className="font-bold text-slate-800 text-sm">Quality Certified</div>
-                  <div className="text-xs text-slate-400">ISO Standard</div>
-                </div>
-              </motion.div>
-
-              {/* Floating badge — Rating */}
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-                className="absolute -bottom-4 -right-4 p-4 rounded-2xl hidden md:flex items-center gap-3"
-                style={{
-                  background: 'rgba(255,255,255,0.7)',
-                  backdropFilter: 'blur(16px)',
-                  WebkitBackdropFilter: 'blur(16px)',
-                  border: '1px solid rgba(255,255,255,0.9)',
-                  boxShadow: '0 8px 24px rgba(0,0,0,0.08)',
-                }}
-              >
-                <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-amber-500">
-                  <Star size={20} fill="currentColor" />
-                </div>
-                <div>
-                  <div className="font-bold text-slate-800 text-sm">4.9 / 5.0</div>
-                  <div className="text-xs text-slate-400">Customer Rating</div>
-                </div>
-              </motion.div>
             </motion.div>
           </div>
         </div>

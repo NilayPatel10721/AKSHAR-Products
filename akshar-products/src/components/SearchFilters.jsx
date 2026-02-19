@@ -8,37 +8,33 @@ export default function SearchFilters({
   categories 
 }) {
   return (
-    <div className="flex flex-col lg:flex-row justify-between items-center gap-6 mb-12">
-      {/* Search */}
-      <div className="relative w-full lg:max-w-sm group">
+    <div className="flex flex-col lg:flex-row justify-between items-center gap-8 mb-20 px-4">
+      
+      {/* Search Input — Fresh White Surface */}
+      <div className="relative w-full lg:max-w-md group">
         <Search
-          className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors"
-          size={18}
+          className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-secondary transition-colors"
+          size={20}
         />
         <input
           type="text"
-          placeholder="Search products..."
+          placeholder="Search our brilliant collection..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full pl-12 pr-5 py-3.5 rounded-2xl text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all font-medium"
-          style={{
-            background: 'rgba(255,255,255,0.6)',
-            backdropFilter: 'blur(16px)',
-            WebkitBackdropFilter: 'blur(16px)',
-            border: '1px solid rgba(255,255,255,0.8)',
-            boxShadow: '0 2px 12px rgba(0,0,0,0.05)',
-          }}
+          className="w-full pl-16 pr-8 py-5 rounded-[24px] bg-white border border-slate-100 text-slate-800 placeholder:text-slate-300 focus:outline-none focus:border-secondary/20 transition-all font-bold text-sm shadow-[0_4px_24px_rgba(14,165,233,0.04)]"
         />
       </div>
 
-      {/* Category pills */}
-      <div className="flex flex-wrap justify-center gap-2">
+      {/* Segmented Category Pills */}
+      <div className="flex flex-wrap justify-center gap-3 bg-white/40 backdrop-blur-sm p-2 rounded-[28px] border border-white">
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
-            className={`px-5 py-2 rounded-full text-sm font-bold transition-all duration-300 ${
-              activeCategory === cat ? 'pill-active' : 'pill-inactive'
+            className={`px-8 py-3 rounded-[20px] text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-500 ${
+              activeCategory === cat 
+              ? 'pill-active shadow-xl shadow-secondary/10' 
+              : 'pill-inactive'
             }`}
           >
             {cat}
