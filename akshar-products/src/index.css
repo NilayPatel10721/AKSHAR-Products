@@ -4,11 +4,11 @@
   --font-outfit: "Outfit", sans-serif;
 
   /* Fresh, Hygienic Cool Palette */
-  --color-primary: #e8563a;       /* the red logo pop */
+  --color-primary: #e8563a; /* the red logo pop */
   --color-primary-dark: #c73d23;
-  --color-secondary: #0ea5e9;     /* fresh sky blue */
-  --color-accent: #22d3ee;        /* hygienic cyan */
-  --color-bg-cool: #F2F7FB;       /* soft cool blue background */
+  --color-secondary: #0ea5e9; /* fresh sky blue */
+  --color-accent: #22d3ee; /* hygienic cyan */
+  --color-bg-cool: #f2f7fb; /* soft cool blue background */
   --color-surface: #ffffff;
   --color-border-soft: rgba(0, 0, 0, 0.04);
 
@@ -16,13 +16,25 @@
   --animate-blob: blob 10s ease-in-out infinite;
 
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
   }
 
   @keyframes blob {
-    0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: scale(1); }
-    50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: scale(1.1); }
+    0%,
+    100% {
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+      transform: scale(1);
+    }
+    50% {
+      border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+      transform: scale(1.1);
+    }
   }
 }
 
@@ -37,6 +49,8 @@
     color: #334155; /* slate-700 for better readability on cool bg */
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
+    /* Prevent browser scroll-anchoring from fighting category switches */
+    overflow-anchor: none;
   }
 }
 
@@ -48,13 +62,17 @@
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.8);
     border-radius: 32px;
-    box-shadow: 0 8px 32px rgba(14, 165, 233, 0.04), 0 2px 8px rgba(0,0,0,0.02);
+    box-shadow:
+      0 8px 32px rgba(14, 165, 233, 0.04),
+      0 2px 8px rgba(0, 0, 0, 0.02);
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .glass-card:hover {
     background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 30px 60px rgba(14, 165, 233, 0.1), 0 4px 16px rgba(0,0,0,0.04);
+    box-shadow:
+      0 30px 60px rgba(14, 165, 233, 0.1),
+      0 4px 16px rgba(0, 0, 0, 0.04);
     transform: translateY(-8px);
   }
 
@@ -110,7 +128,11 @@
 
   /* ── Radial Glow Utility ── */
   .radial-glow {
-    background: radial-gradient(circle at center, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%);
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0) 70%
+    );
   }
 
   /* ── Category pill ── */
@@ -127,4 +149,55 @@
     border: 1px solid rgba(255, 255, 255, 0.8);
     @apply text-slate-400 hover:text-slate-600;
   }
+
+  /* ── Shimmer sweep on product image area ── */
+  .shimmer-sweep {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.55) 50%,
+      transparent 60%
+    );
+    background-size: 200% 100%;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .group:hover .shimmer-sweep {
+    opacity: 1;
+    animation: shimmer 1.4s ease forwards;
+  }
+
+  @keyframes shimmer {
+    from {
+      background-position: 200% center;
+    }
+    to {
+      background-position: -200% center;
+    }
+  }
+
+  /* ── Scroll items start hidden; GSAP will reveal them ──
+     Prevents FOUC while GSAP initialises                  */
+  .scroll-item {
+    opacity: 0;
+    transform: translateY(55px) scale(0.95);
+    will-change: transform, opacity;
+  }
+}
+
+/* ── Lenis: disable native smooth-scroll so Lenis owns it ── */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
 }

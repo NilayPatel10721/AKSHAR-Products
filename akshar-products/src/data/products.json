@@ -1,252 +1,308 @@
 [
   {
     "id": 1,
-    "name": "KK Mahabar Detergent Cake Premium",
-    "category": "Cakes",
-    "price": "₹10",
+    "name": "KK Super Soap",
+    "category": "Soap",
     "image": "/img/WhatsApp Image 2026-01-19 at 2.09.59 PM.jpeg",
     "rating": 4.8,
     "tag": "Best Seller",
-    "description": "Premium detergent cake for tough stain removal."
+    "description": "Premium quality detergent cake for daily fabric care."
   },
   {
     "id": 2,
-    "name": "KK Ultra White Power Powder",
-    "category": "Powders",
-    "price": "₹55",
-    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.03 PM.jpeg",
+    "name": "KK Mahabar Soap",
+    "category": "Soap",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.09.59 PM (1).jpeg",
     "rating": 4.9,
-    "tag": "New",
-    "description": "Extra white formula for bright and shining clothes."
+    "tag": "Popular",
+    "description": "High-efficiency detergent cake for tough stain removal."
   },
   {
     "id": 3,
-    "name": "KK Mahabar Super Pack",
-    "category": "Cakes",
-    "price": "₹20",
-    "image": "/img/WhatsApp Image 2026-01-19 at 2.09.59 PM (1).jpeg",
+    "name": "KK Saburol Soap",
+    "category": "Soap",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.00 PM.jpeg",
     "rating": 4.7,
-    "tag": "Popular",
-    "description": "Multipack for long-lasting freshness."
+    "tag": "",
+    "description": "Gentle on fabrics, tough on dirt. Perfect for all types of clothes."
   },
   {
     "id": 4,
-    "name": "KK Floral Fresh Detergent",
-    "category": "Powders",
-    "price": "₹48",
-    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.04 PM.jpeg",
+    "name": "KK Sabu Bandha",
+    "category": "Soap",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.06 PM.jpeg",
     "rating": 4.6,
-    "tag": "Value",
-    "description": "Gentle on hands, tough on dirt with floral fragrance."
+    "tag": "Value Pack",
+    "description": "Economy bundle pack of 6 powerful detergent bars."
   },
   {
     "id": 5,
-    "name": "KK Power Shine Liquid",
-    "category": "Liquids",
-    "price": "₹85",
-    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.12 PM.jpeg",
-    "rating": 4.9,
-    "tag": "Pro",
-    "description": "High-efficiency liquid detergent for top and front load."
+    "name": "KK Dabba Soap",
+    "category": "Soap",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.03 PM (2).jpeg",
+    "rating": 4.5,
+    "tag": "",
+    "description": "Large detergent cake in a protective container for longer use."
   },
   {
     "id": 6,
-    "name": "KK Lemon Bright Cake",
-    "category": "Cakes",
-    "price": "₹15",
-    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.00 PM.jpeg",
-    "rating": 4.5,
-    "tag": "",
-    "description": "Infused with lemon power for brilliant whiteness."
+    "name": "KK Detergent Powder",
+    "category": "Detergent",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.03 PM.jpeg",
+    "rating": 4.8,
+    "tag": "Hot",
+    "description": "Powerful cleaning formula for brilliant white and bright clothes."
   },
   {
     "id": 7,
-    "name": "KK Bulk Saver Powder 5Kg",
-    "category": "Powders",
-    "price": "₹240",
+    "name": "KK Detergent Powder",
+    "category": "Detergent",
     "image": "/img/WhatsApp Image 2026-01-19 at 2.10.03 PM (1).jpeg",
-    "rating": 4.8,
-    "tag": "Save More",
-    "description": "Family pack for daily heavy washing needs."
+    "rating": 4.7,
+    "tag": "",
+    "description": "Compact pack for daily laundry needs with superior cleaning."
   },
   {
     "id": 8,
-    "name": "KK Active Clean Bar",
-    "category": "Cakes",
-    "price": "₹12",
-    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.03 PM (2).jpeg",
-    "rating": 4.4,
-    "tag": "",
-    "description": "Fast action bar for emergency stain removal."
+    "name": "KK Detergent Powder Plus",
+    "category": "Detergent",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.04 PM.jpeg",
+    "rating": 4.9,
+    "tag": "New",
+    "description": "Enhanced triple-action formula for extra freshness and purity."
   },
   {
     "id": 9,
-    "name": "KK Rose Petal Fresh",
-    "category": "Powders",
-    "price": "₹52",
+    "name": "KK Detergent Powder",
+    "category": "Detergent",
     "image": "/img/WhatsApp Image 2026-01-19 at 2.10.04 PM (1).jpeg",
-    "rating": 4.7,
-    "tag": "Fragrance",
-    "description": "Leaves your clothes smelling like fresh roses."
+    "rating": 4.9,
+    "tag": "Best Value",
+    "description": "Family economy pack for bulk washing. Maximum savings."
   },
   {
     "id": 10,
-    "name": "KK Hand Wash Specialist",
-    "category": "Powders",
-    "price": "₹35",
+    "name": "KK Detergent Powder",
+    "category": "Detergent",
     "image": "/img/WhatsApp Image 2026-01-19 at 2.10.04 PM (2).jpeg",
-    "rating": 4.3,
+    "rating": 4.4,
     "tag": "",
-    "description": "Specially formulated for manual hand washing."
+    "description": "Handy mini pack perfect for travel or small laundry batches."
   },
   {
     "id": 11,
-    "name": "KK Premium Combo Pack",
-    "category": "Combos",
-    "price": "₹150",
+    "name": "KK Detergent Powder",
+    "category": "Detergent",
     "image": "/img/WhatsApp Image 2026-01-19 at 2.10.07 PM.jpeg",
-    "rating": 4.9,
-    "tag": "Must Buy",
-    "description": "Best of both: Cake and Powder in one pack."
+    "rating": 4.3,
+    "tag": "",
+    "description": "Convenient single-use sachet for emergency washing."
   },
   {
     "id": 12,
-    "name": "KK Kitchen Degreaser Cake",
-    "category": "Cakes",
-    "price": "₹18",
-    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.06 PM.jpeg",
+    "name": "White Phenyl",
+    "category": "Phenyl",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.07 PM (1).jpeg",
     "rating": 4.6,
-    "tag": "Useful",
-    "description": "Removes tough grease from work clothes easily."
+    "tag": "",
+    "description": "Strong disinfectant white phenyl for hygienic floor cleaning."
   },
   {
     "id": 13,
-    "name": "KK Winter Care Mild",
-    "category": "Powders",
-    "price": "₹65",
-    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.07 PM (1).jpeg",
+    "name": "White Phenyl",
+    "category": "Phenyl",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.07 PM (2).jpeg",
     "rating": 4.8,
-    "tag": "Winter",
-    "description": "Protects delicate woolens and winter wear."
+    "tag": "Best Seller",
+    "description": "Bulk value pack of our powerful white phenyl disinfectant."
   },
   {
     "id": 14,
-    "name": "KK Color Guard Detergent",
-    "category": "Powders",
-    "price": "₹58",
-    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.07 PM (2).jpeg",
+    "name": "Liquid Orange Cleaner",
+    "category": "Detergent",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.09 PM.jpeg",
     "rating": 4.7,
-    "tag": "New",
-    "description": "Prevents color fading while cleaning deep."
+    "tag": "",
+    "description": "Multi-surface cleaner with refreshing orange citrus fragrance."
   },
   {
     "id": 15,
-    "name": "KK Super Shine Liquid Refill",
-    "category": "Liquids",
-    "price": "₹75",
-    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.12 PM (1).jpeg",
-    "rating": 4.5,
-    "tag": "Eco Friendly",
-    "description": "Refill pack for the Super Shine power liquid."
+    "name": "Liquid Orange Cleaner",
+    "category": "Detergent",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.09 PM (1).jpeg",
+    "rating": 4.8,
+    "tag": "",
+    "description": "Concentrated orange cleaner in industrial bulk size."
   },
   {
     "id": 16,
-    "name": "KK Fabric Softener Plus",
-    "category": "Liquids",
-    "price": "₹90",
-    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.13 PM.jpeg",
-    "rating": 4.9,
-    "tag": "Luxury",
-    "description": "Adds softness and long-lasting aroma to clothes."
+    "name": "Liquid Green Cleaner",
+    "category": "Detergent",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.09 PM (2).jpeg",
+    "rating": 4.6,
+    "tag": "",
+    "description": "Heavy-duty green liquid for deep surface cleaning and hygiene."
   },
   {
     "id": 17,
-    "name": "KK Tough Spot Remover",
-    "category": "Cakes",
-    "price": "₹22",
-    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.09 PM.jpeg",
-    "rating": 4.8,
-    "tag": "Strong",
-    "description": "Targeted stain removal for cuffs and collars."
+    "name": "Liquid Green Cleaner",
+    "category": "Detergent",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.10 PM.jpeg",
+    "rating": 4.7,
+    "tag": "",
+    "description": "Professional grade bulk green liquid for large scale cleaning."
   },
   {
     "id": 18,
-    "name": "KK Baby Safe Gentle",
-    "category": "Powders",
-    "price": "₹70",
-    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.09 PM (1).jpeg",
-    "rating": 4.9,
-    "tag": "Safe",
-    "description": "Dermatologically tested for baby clothes."
+    "name": "Green Active Liquid",
+    "category": "Detergent",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.10 PM (1).jpeg",
+    "rating": 4.5,
+    "tag": "",
+    "description": "Concentrated active liquid for effective household sanitation."
   },
   {
     "id": 19,
-    "name": "KK Industrial Wash Strength",
-    "category": "Powders",
-    "price": "₹110",
-    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.09 PM (2).jpeg",
-    "rating": 4.6,
-    "tag": "Heavy Duty",
-    "description": "High power formula for industrial uniforms."
+    "name": "Green Active Liquid",
+    "category": "Detergent",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.10 PM (2).jpeg",
+    "rating": 4.7,
+    "tag": "",
+    "description": "Daily use green liquid for maintaining a germ-free home."
   },
   {
     "id": 20,
-    "name": "KK Sparkle White Bar",
-    "category": "Cakes",
-    "price": "₹25",
-    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.10 PM.jpeg",
-    "rating": 4.7,
-    "tag": "Expert",
-    "description": "Optical brighteners for that extra sparkle."
+    "name": "KK Toilet Cleaner",
+    "category": "Detergent",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.11 PM.jpeg",
+    "rating": 4.9,
+    "tag": "Top Rated",
+    "description": "Powerful germ-kill formula for a sparkling clean toilet."
   },
   {
     "id": 21,
-    "name": "KK Ocean Breeze Powder",
-    "category": "Powders",
-    "price": "₹60",
-    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.10 PM (1).jpeg",
+    "name": "Extra Strong Cleaner",
+    "category": "Detergent",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.11 PM (1).jpeg",
     "rating": 4.8,
-    "tag": "Fresh",
-    "description": "Cooling ocean scent for all-day freshness."
+    "tag": "Strong",
+    "description": "Ultra-strength formula for removing tough limescale and stains."
   },
   {
     "id": 22,
-    "name": "KK Silk & Satin Special",
-    "category": "Powders",
-    "price": "₹95",
-    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.10 PM (2).jpeg",
+    "name": "KK Hand Wash",
+    "category": "Detergent",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.11 PM (2).jpeg",
     "rating": 4.9,
-    "tag": "Delicate",
-    "description": "For your most precious and delicate fabrics."
+    "tag": "New",
+    "description": "Gentle hand wash with moisturizing agents and soft fragrance."
   },
   {
     "id": 23,
-    "name": "KK Travel Mini Cake Set",
-    "category": "Cakes",
-    "price": "₹30",
-    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.11 PM.jpeg",
-    "rating": 4.4,
-    "tag": "Travel",
-    "description": "Small cakes perfect for your travel backpack."
+    "name": "Bathroom Cleaner Red",
+    "category": "Detergent",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.12 PM.jpeg",
+    "rating": 4.7,
+    "tag": "",
+    "description": "Specialized red formula for shining bathroom tiles and surfaces."
   },
   {
     "id": 24,
-    "name": "KK Multi-Surface Cleaning Powder",
-    "category": "Powders",
-    "price": "₹45",
-    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.11 PM (1).jpeg",
-    "rating": 4.6,
-    "tag": "Utility",
-    "description": "Versatile cleaner for clothes and home surfaces."
+    "name": "KK Thick Acid",
+    "category": "Detergent",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.12 PM (1).jpeg",
+    "rating": 4.5,
+    "tag": "",
+    "description": "Industrial grade thick acid for hard water stain removal."
   },
   {
     "id": 25,
-    "name": "KK Family Care Economy Pack",
-    "category": "Powders",
-    "price": "₹180",
-    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.11 PM (2).jpeg",
+    "name": "Black Phenyl",
+    "category": "Phenyl",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.13 PM.jpeg",
+    "rating": 4.6,
+    "tag": "",
+    "description": "Classic black phenyl for deep cleaning and pest deterrence."
+  },
+  {
+    "id": 26,
+    "name": "Bleach Liquid",
+    "category": "Detergent",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.09.59 PM.jpeg",
+    "rating": 4.4,
+    "tag": "",
+    "description": "High-purity bleach for whitening and surface disinfection."
+  },
+  {
+    "id": 27,
+    "name": "KK Liquid Detergent",
+    "category": "Detergent",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.09.59 PM (1).jpeg",
+    "rating": 4.9,
+    "tag": "Premium",
+    "description": "Expert liquid detergent for top and front load washing machines."
+  },
+  {
+    "id": 28,
+    "name": "KK Liquid Detergent",
+    "category": "Detergent",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.00 PM.jpeg",
+    "rating": 4.9,
+    "tag": "Big Saving",
+    "description": "Institutional pack for machine washing. Best per-wash value."
+  },
+  {
+    "id": 29,
+    "name": "KK Glass Cleaner",
+    "category": "Detergent",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.03 PM.jpeg",
+    "rating": 4.8,
+    "tag": "",
+    "description": "Streak-free crystal shine for windows, mirrors and glass."
+  },
+  {
+    "id": 30,
+    "name": "Color Phenyl",
+    "category": "Phenyl",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.04 PM.jpeg",
     "rating": 4.7,
-    "tag": "Best Value",
-    "description": "Maximum cleaning volume at minimum price."
+    "tag": "",
+    "description": "Perfumed color phenyl for a fresh-smelling clean floor."
+  },
+  {
+    "id": 31,
+    "name": "Color Phenyl",
+    "category": "Phenyl",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.04 PM (1).jpeg",
+    "rating": 4.8,
+    "tag": "",
+    "description": "Economic bulk pack of aromatic color phenyl disinfectant."
+  },
+  {
+    "id": 32,
+    "name": "KK Premium Liquid",
+    "category": "Detergent",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.07 PM.jpeg",
+    "rating": 4.9,
+    "tag": "Elite",
+    "description": "Our most advanced liquid formula for luxury garment care."
+  },
+  {
+    "id": 33,
+    "name": "KK Premium Liquid",
+    "category": "Detergent",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.07 PM (1).jpeg",
+    "rating": 4.9,
+    "tag": "Exclusive",
+    "description": "Premium cleaning performance for delicate and silk fabrics."
+  },
+  {
+    "id": 34,
+    "name": "KK Premium Liquid",
+    "category": "Detergent",
+    "image": "/img/WhatsApp Image 2026-01-19 at 2.10.07 PM (2).jpeg",
+    "rating": 5.0,
+    "tag": "Grand Pack",
+    "description": "The ultimate institutional pack for our highest quality liquid."
   }
 ]
