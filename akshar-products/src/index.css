@@ -3,192 +3,150 @@
 @theme {
   --font-outfit: "Outfit", sans-serif;
 
-  /* Fresh, Hygienic Cool Palette */
-  --color-primary: #e8563a; /* the red logo pop */
-  --color-primary-dark: #c73d23;
-  --color-secondary: #0ea5e9; /* fresh sky blue */
-  --color-accent: #22d3ee; /* hygienic cyan */
-  --color-bg-cool: #f2f7fb; /* soft cool blue background */
-  --color-surface: #ffffff;
-  --color-border-soft: rgba(0, 0, 0, 0.04);
+  /* Premium Cleaning Palette: Green, White, Red */
+  --color-primary: #0A4226; /* Deep Premium Green */
+  --color-primary-light: #166A40;
+  --color-accent: #D32F2F; /* Vibrant Red */
+  --color-bg-cool: #F4F9F5; /* Crisp clean white/green tint */
+  --color-surface: #FFFFFF; 
+  --color-border-soft: rgba(10, 66, 38, 0.08);
 
-  --animate-float: float 6s ease-in-out infinite;
-  --animate-blob: blob 10s ease-in-out infinite;
-
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-15px);
-    }
-  }
+  --animate-blob: blob 15s ease-in-out infinite;
+  --animate-float-slow: float-slow 6s ease-in-out infinite;
+  --animate-float-fast: float-fast 4s ease-in-out infinite;
+  --animate-bubble-rise: bubble-rise 8s linear infinite;
 
   @keyframes blob {
-    0%,
-    100% {
+    0%, 100% {
       border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
       transform: scale(1);
     }
     50% {
       border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
+  }
+
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+  }
+
+  @keyframes float-fast {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(-2deg); }
+  }
+
+  @keyframes bubble-rise {
+    0% { transform: translateY(100vh) scale(0); opacity: 0; }
+    20% { opacity: 0.6; }
+    80% { opacity: 0.4; }
+    100% { transform: translateY(-20vh) scale(1.5); opacity: 0; }
   }
 }
 
 @layer base {
   :root {
-    --primary: #e8563a;
+    --primary: #0A4226;
   }
 
   body {
     @apply font-outfit;
     background-color: var(--color-bg-cool);
-    color: #334155; /* slate-700 for better readability on cool bg */
+    color: #0A4226; 
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
-    /* Prevent browser scroll-anchoring from fighting category switches */
     overflow-anchor: none;
+  }
+
+  /* Aesthetic Noise Overlay for texture */
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; 
+    width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.15;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+  }
+
+  ::selection {
+    background-color: #0A4226;
+    color: #FFFFFF;
   }
 }
 
 @layer components {
-  /* ── Glassmorphism card ── */
+  /* ── Glassmorphism ── */
   .glass-card {
     background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border: 1px solid rgba(255, 255, 255, 0.8);
-    border-radius: 32px;
+    border-radius: 24px;
     box-shadow:
-      0 8px 32px rgba(14, 165, 233, 0.04),
-      0 2px 8px rgba(0, 0, 0, 0.02);
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      0 20px 40px rgba(10, 66, 38, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 1);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .glass-card:hover {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.85);
     box-shadow:
-      0 30px 60px rgba(14, 165, 233, 0.1),
-      0 4px 16px rgba(0, 0, 0, 0.04);
+      0 30px 60px rgba(10, 66, 38, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 1);
     transform: translateY(-8px);
-  }
-
-  /* ── Navbar glass ── */
-  .glass-nav {
-    background: rgba(242, 247, 251, 0.8);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    padding: 1rem 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 0.3s ease;
   }
 
   /* ── Buttons ── */
   .btn {
-    @apply px-8 py-3.5 rounded-2xl font-bold transition-all duration-300 flex items-center gap-2 cursor-pointer;
+    @apply px-10 py-5 rounded-full font-black uppercase tracking-widest text-[11px] transition-all duration-500 flex items-center justify-center gap-2 cursor-pointer relative overflow-hidden;
   }
 
   .btn-primary {
-    @apply bg-primary text-white hover:bg-primary-dark active:scale-95;
-    box-shadow: 0 4px 20px rgba(232, 86, 58, 0.3);
+    @apply bg-[#0A4226] text-white shadow-xl shadow-[#0A4226]/20;
+    border: 1px solid transparent;
   }
-
   .btn-primary:hover {
-    box-shadow: 0 12px 30px rgba(232, 86, 58, 0.45);
+    @apply bg-[#166A40] text-white;
     transform: translateY(-2px);
   }
 
-  .btn-glass {
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    @apply text-slate-600 font-bold hover:bg-white/70 active:scale-95 shadow-sm;
+  .btn-accent {
+    @apply bg-[#D32F2F] text-white shadow-xl shadow-[#D32F2F]/20;
+    border: 1px solid transparent;
+  }
+  .btn-accent:hover {
+    @apply bg-[#B71C1C] text-white;
+    transform: translateY(-2px);
   }
 
-  /* ── Blob background shapes ── */
-  .blob {
-    position: absolute;
-    border-radius: 50%;
-    animation: blob 10s ease-in-out infinite;
-    filter: blur(80px);
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.15;
+  .btn-outline {
+    @apply bg-white/40 backdrop-blur-md text-[#0A4226] border border-[#0A4226]/20;
+  }
+  .btn-outline:hover {
+    @apply bg-[#0A4226] text-white border-[#0A4226];
+    transform: translateY(-2px);
   }
 
-  /* ── Radial Glow Utility ── */
-  .radial-glow {
-    background: radial-gradient(
-      circle at center,
-      rgba(255, 255, 255, 0.9) 0%,
-      rgba(255, 255, 255, 0) 70%
-    );
+  /* ── Typography ── */
+  .display-text {
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    font-weight: 900;
   }
 
-  /* ── Category pill ── */
-  .pill-active {
-    background: rgba(14, 165, 233, 0.1);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(14, 165, 233, 0.2);
-    @apply text-secondary font-bold;
-  }
-
-  .pill-inactive {
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    @apply text-slate-400 hover:text-slate-600;
-  }
-
-  /* ── Shimmer sweep on product image area ── */
-  .shimmer-sweep {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      105deg,
-      transparent 40%,
-      rgba(255, 255, 255, 0.55) 50%,
-      transparent 60%
-    );
-    background-size: 200% 100%;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-  .group:hover .shimmer-sweep {
-    opacity: 1;
-    animation: shimmer 1.4s ease forwards;
-  }
-
-  @keyframes shimmer {
-    from {
-      background-position: 200% center;
-    }
-    to {
-      background-position: -200% center;
-    }
-  }
-
-  /* ── Scroll items start hidden; GSAP will reveal them ──
-     Prevents FOUC while GSAP initialises                  */
   .scroll-item {
     opacity: 0;
-    transform: translateY(55px) scale(0.95);
+    transform: translateY(80px);
     will-change: transform, opacity;
   }
 }
 
-/* ── Lenis: disable native smooth-scroll so Lenis owns it ── */
+/* ── Lenis Smooth Scroll ── */
 html.lenis,
 html.lenis body {
   height: auto;
@@ -200,4 +158,10 @@ html.lenis body {
 
 .lenis.lenis-smooth [data-lenis-prevent] {
   overscroll-behavior: contain;
+}
+
+/* Hide scrollbar for cleaner look */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
 }

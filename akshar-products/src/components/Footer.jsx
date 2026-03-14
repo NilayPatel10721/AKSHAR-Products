@@ -11,40 +11,36 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="pt-32 pb-16 relative overflow-hidden bg-bg-cool"
+      className="pt-32 pb-16 relative overflow-hidden bg-[#EAE6DF]"
     >
       {/* Background Subtle Gradient */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
-      <div className="blob w-[600px] h-[600px] bg-white opacity-40 bottom-[-100px] right-[-100px]" />
+      <div className="absolute top-0 left-0 w-full h-px bg-[#1F2326]/10" />
+      <div className="blob w-[600px] h-[600px] bg-[#D35400] opacity-[0.03] bottom-[-100px] right-[-100px] pointer-events-none" />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 mb-24 text-center md:text-left">
           {/* Brand Identity */}
           <div className="lg:col-span-1 flex flex-col items-center md:items-start">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 rounded-2xl bg-primary flex items-center justify-center shadow-lg shadow-primary/20">
-                <Sparkles size={20} className="text-white" />
+            <div className="flex items-center gap-3 mb-8 group">
+              <div className="flex items-center justify-center relative transition-transform duration-700 group-hover:scale-105">
+                <img src="/img/logo.png" alt="Akshar Products Logo" className="h-12 object-contain" />
               </div>
-              <div className="flex flex-col leading-none">
-                <span className="font-black text-2xl text-slate-800 tracking-tighter">
+              <div className="flex flex-col leading-none hidden sm:flex">
+                <span className="font-black text-3xl text-[#1F2326] tracking-tighter uppercase">
                   Akshar
-                </span>
-                <span className="text-[10px] font-black uppercase tracking-[0.35em] text-primary mt-0.5">
-                  Products
                 </span>
               </div>
             </div>
-            <p className="text-slate-500 leading-relaxed mb-10 text-[15px] font-medium">
-              Redefining laundry excellence with fresh formulas designed for the
-              modern household since 2010.
+            <p className="text-[#1F2326]/60 leading-relaxed mb-10 text-[13px] font-medium tracking-wide">
+              Redefining laundry excellence with pure, advanced formulations designed for the modern household since 2010.
             </p>
             <div className="flex gap-4">
               {[Facebook, Instagram, Twitter].map((Icon, i) => (
                 <div
                   key={i}
-                  className="w-10 h-10 rounded-xl flex items-center justify-center bg-white border border-slate-100 text-slate-400 hover:text-primary hover:border-primary/20 transition-all cursor-pointer shadow-sm"
+                  className="w-10 h-10 rounded-full flex items-center justify-center bg-transparent border border-[#1F2326]/10 text-[#1F2326] hover:bg-[#1F2326] hover:text-[#EAE6DF] transition-all cursor-pointer"
                 >
-                  <Icon size={18} />
+                  <Icon size={16} />
                 </div>
               ))}
             </div>
@@ -52,10 +48,10 @@ export default function Footer() {
 
           {/* Navigation Sets */}
           <div>
-            <h4 className="font-black text-slate-800 mb-8 uppercase tracking-[0.25em] text-[11px]">
+            <h4 className="font-black text-[#1F2326] mb-8 uppercase tracking-[0.25em] text-[10px]">
               Collections
             </h4>
-            <ul className="space-y-4 text-slate-500 text-sm font-bold">
+            <ul className="space-y-4 text-[#1F2326]/60 text-sm font-bold">
               {[
                 "Detergent Cakes",
                 "Premium Powders",
@@ -63,8 +59,9 @@ export default function Footer() {
                 "Industrial Bulk",
               ].map((l) => (
                 <li key={l}>
-                  <a href="#" className="hover:text-primary transition-colors">
+                  <a href="#" className="hover:text-[#D35400] transition-colors relative inline-block group">
                     {l}
+                    <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#D35400] transition-all duration-300 group-hover:w-full" />
                   </a>
                 </li>
               ))}
@@ -72,10 +69,10 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-black text-slate-800 mb-8 uppercase tracking-[0.25em] text-[11px]">
+            <h4 className="font-black text-[#1F2326] mb-8 uppercase tracking-[0.25em] text-[10px]">
               Resources
             </h4>
-            <ul className="space-y-4 text-slate-500 text-sm font-bold">
+            <ul className="space-y-4 text-[#1F2326]/60 text-sm font-bold">
               {[
                 "Quality Labs",
                 "Usage Guide",
@@ -83,8 +80,9 @@ export default function Footer() {
                 "Distributorship",
               ].map((l) => (
                 <li key={l}>
-                  <a href="#" className="hover:text-primary transition-colors">
+                  <a href="#" className="hover:text-[#D35400] transition-colors relative inline-block group">
                     {l}
+                    <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#D35400] transition-all duration-300 group-hover:w-full" />
                   </a>
                 </li>
               ))}
@@ -93,51 +91,45 @@ export default function Footer() {
 
           {/* Contact Details */}
           <div className="flex flex-col items-center md:items-start">
-            <h4 className="font-black text-slate-800 mb-8 uppercase tracking-[0.25em] text-[11px]">
+            <h4 className="font-black text-[#1F2326] mb-8 uppercase tracking-[0.25em] text-[10px]">
               Headquarters
             </h4>
-            <div className="space-y-4 text-slate-500 font-bold text-sm">
+            <div className="space-y-4 text-[#1F2326]/60 font-bold text-sm">
               <div className="flex items-start gap-4 justify-center md:justify-start">
                 <MapPin
-                  size={18}
-                  className="text-slate-300 mt-0.5 flex-shrink-0"
+                  size={16}
+                  className="text-[#D35400] mt-0.5 flex-shrink-0"
                 />
-                <span>
+                <span className="leading-relaxed">
                   Phase 3, G.I.D.C Estate,
                   <br />
                   Rajkot, GJ 360001
                 </span>
               </div>
               <div className="flex items-center gap-4 justify-center md:justify-start">
-                <Mail size={18} className="text-slate-300 flex-shrink-0" />
+                <Mail size={16} className="text-[#D35400] flex-shrink-0" />
                 <a
                   href="mailto:contact@akshar.in"
-                  className="hover:text-primary transition-colors"
+                  className="hover:text-[#D35400] transition-colors"
                 >
                   info@aksharproducts.in
                 </a>
               </div>
             </div>
-            <div className="mt-8 px-6 py-4 rounded-2xl bg-white border border-slate-100 shadow-sm">
-              <p className="font-black text-slate-800 text-sm">
-                Customer Helpline
-              </p>
-              <p className="text-primary font-black mt-1">+91 91234 56780</p>
-            </div>
           </div>
         </div>
 
         {/* Legal Integrity Bar */}
-        <div className="pt-12 flex flex-col md:flex-row justify-between items-center gap-8 border-t border-slate-200/50">
-          <p className="text-[10px] font-black text-slate-400 tracking-[0.2em] uppercase">
-            © 2026 Akshar Products India — All Rights Reserved.
+        <div className="pt-12 flex flex-col md:flex-row justify-between items-center gap-8 border-t border-[#1F2326]/10">
+          <p className="text-[9px] font-black text-[#1F2326]/40 tracking-[0.3em] uppercase">
+            © {new Date().getFullYear()} Akshar Products. All Rights Reserved.
           </p>
-          <div className="flex gap-8 text-[10px] font-black text-slate-400 tracking-[0.2em] uppercase">
+          <div className="flex gap-8 text-[9px] font-black text-[#1F2326]/40 tracking-[0.3em] uppercase">
             {["Compliance", "Legal", "Privacy"].map((l) => (
               <a
                 key={l}
                 href="#"
-                className="hover:text-slate-800 transition-colors"
+                className="hover:text-[#1F2326] transition-colors"
               >
                 {l}
               </a>

@@ -1,161 +1,190 @@
-import { motion } from "framer-motion";
-import { Sparkles, ChevronRight, ShieldCheck, Heart } from "lucide-react";
-import Aurora from "./Aurora";
+import { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowUpRight } from "lucide-react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
+  const containerRef = useRef(null);
+  const textRef = useRef(null);
+  const imagesRef = useRef(null);
+  const bgRef = useRef(null);
+
+  // Images grouped at the bottom to match the screenshot
+  const floatingImages = [
+    { src: "/img/home_screen.png", alt: "Dishwash", bottom: "45%", left: "5%", size: "w-32 h-32 md:w-48 md:h-48", delay: 0, rotate: -6 },
+    { src: "/img/WhatsApp Image 2026-01-19 at 2.10.11 PM (2).jpeg", alt: "Liquid Cleaner", bottom: "35%", right: "5%", size: "w-40 h-40 md:w-56 md:h-56", delay: 0.2, rotate: 4 },
+    { src: "/img/WhatsApp Image 2026-01-19 at 2.09.59 PM (1).jpeg", alt: "Detergent Pack", bottom: "5%", left: "15%", size: "w-48 h-32 md:w-64 md:h-44", delay: 0.4, rotate: -2 },
+  ];
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      // 1. Mobile-Optimized Entrance Animation
+      const tl = gsap.timeline();
+      
+      // Top text reveal
+      tl.from(".hero-text-reveal", {
+        y: 40,
+        opacity: 0,
+        duration: 1.2,
+        stagger: 0.15,
+        ease: "power3.out",
+        delay: 0.1
+      });
+      
+      // Buttons reveal
+      tl.from(".hero-btn", {
+        y: 20,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "power2.out"
+      }, "-=0.6");
+
+      // Floating images pop in from bottom
+      tl.from(".floating-img-wrapper", {
+        y: 150,
+        opacity: 0,
+        duration: 1.2,
+        stagger: 0.15,
+        ease: "back.out(1.2)"
+      }, "-=0.8");
+
+      // 2. Strong Parallax Scrolling Effect for Background Products
+      gsap.to(bgRef.current, {
+        y: 100,
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+      
+      gsap.to(textRef.current, {
+        y: -100,
+        opacity: 0,
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "10% top",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+
+      // Dramatically scroll the products upwards
+      gsap.utils.toArray('.floating-img-wrapper').forEach((img, i) => {
+        gsap.to(img, {
+          y: -150 - (i * 80), // Strong differential parallax
+          rotation: (i % 2 === 0 ? 12 : -12),
+          scale: 1.05 + (i * 0.05),
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: 1
+          }
+        });
+      });
+
+    }, containerRef);
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section
-      id="home"
-      className="relative min-h-[90vh] flex items-center overflow-hidden bg-bg-cool pt-24 pb-32"
+    <section 
+      ref={containerRef} 
+      className="relative min-h-[100dvh] overflow-hidden flex flex-col pt-32 pb-4 bg-[#F2F6F3]"
     >
-      {/* ── Aurora animated gradient background ── */}
-      <Aurora />
+      {/* Background Aesthetics */}
+      <div ref={bgRef} className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute top-[10%] left-[-10%] w-[60vw] h-[60vw] bg-[#0A4226] opacity-[0.03] blur-[80px] rounded-full animate-[blob_12s_ease-in-out_infinite]" />
+        <div className="absolute bottom-[20%] right-[-10%] w-[70vw] h-[70vw] bg-[#0A4226] opacity-[0.04] blur-[100px] rounded-full animate-[blob_15s_ease-in-out_infinite]" />
+      </div>
 
-      {/* ── Soft blob accents on top of aurora ── */}
-      <div className="blob w-[500px] h-[500px] bg-secondary/10 top-[-10%] right-[-10%]" />
-      <div className="blob w-[350px] h-[350px] bg-accent/15 bottom-[-5%] left-[-5%]" />
-      <div className="absolute inset-0 radial-glow opacity-40" />
+      {/* ── Main Content Container ── */}
+      <div className="container mx-auto px-6 relative z-10 flex flex-col items-center flex-1 w-full max-w-4xl">
+        
+        {/* Top Text Content */}
+        <div ref={textRef} className="flex flex-col items-center text-center w-full mt-2 pointer-events-auto z-20">
+          
+          <h1 className="text-[3.5rem] leading-[0.9] sm:text-6xl md:text-[5.5rem] lg:text-[6.5rem] tracking-tighter text-[#166A40] mb-6 w-full font-serif italic">
+            <div className="overflow-hidden py-2 inline-block">
+              <span className="block hero-text-reveal">
+                Akshar Products <span className="text-[#D32F2F] not-italic text-[5rem] md:text-[7rem] leading-[0]">.</span>
+              </span>
+            </div>
+          </h1>
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-20">
-          {/* ── Text Content ── */}
-          <div className="w-full lg:w-3/5 text-center lg:text-left">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="inline-flex items-center gap-3 px-5 py-2 rounded-full text-[11px] font-black uppercase tracking-[0.25em] text-secondary mb-10 bg-white/60 backdrop-blur-md border border-white"
-            >
-              <Sparkles size={14} className="text-secondary" />
-              Premium Fabric Care Since 2010
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-6xl md:text-7xl lg:text-[100px] font-black text-slate-800 leading-[0.9] mb-10 tracking-tighter"
-            >
-              Purely <br />
-              <span className="text-primary">Brilliant.</span> <br />
-              Extra Fresh.
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 1 }}
-              className="text-xl text-slate-500 max-w-lg mx-auto lg:mx-0 mb-14 leading-relaxed font-medium"
-            >
-              High-performance laundry solutions meticulously engineered for
-              superior whiteness and gentle hygiene.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="flex flex-wrap gap-5 justify-center lg:justify-start"
-            >
-              <button
-                onClick={() =>
-                  document
-                    .getElementById("catalog")
-                    .scrollIntoView({ behavior: "smooth" })
-                }
-                className="btn btn-primary px-12 py-5 text-lg"
-              >
-                Shop Collection
-              </button>
-              <button className="flex items-center gap-3 font-black text-slate-400 hover:text-slate-600 transition-colors text-lg group">
-                Quality Labs{" "}
-                <ChevronRight
-                  size={22}
-                  className="group-hover:translate-x-1 transition-transform"
-                />
-              </button>
-            </motion.div>
+          <div className="overflow-hidden mb-10 w-full max-w-lg mx-auto">
+            <p className="hero-text-reveal text-[15px] sm:text-base text-[#166A40]/80 font-semibold leading-relaxed">
+              Experience unparalleled hygiene with our scientifically formulated detergent, phenyl, and dishwash liquids. Crafted for safety, effectiveness, and a sparkling home.
+            </p>
           </div>
 
-          {/* ── Product Visual with Glow ── */}
-          <div className="w-full lg:w-2/5 relative flex justify-center">
-            <motion.div
-              initial={{ opacity: 0, x: 50, scale: 0.9 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              transition={{
-                duration: 1.5,
-                ease: [0.16, 1, 0.3, 1],
-                delay: 0.3,
-              }}
-              className="relative w-full max-w-md"
-            >
-              {/* Radial Light Glow */}
-              <div
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] radial-glow animate-pulse pointer-events-none z-0"
-                style={{ animationDuration: "4s" }}
-              />
-
-              {/* Product Showcase */}
-              <div className="relative z-10 p-4">
-                <motion.div
-                  animate={{ y: [0, -15, 0] }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="relative drop-shadow-[0_40px_80px_rgba(14,165,233,0.15)]"
-                >
-                  <img
-                    src="/img/home_screen.png"
-                    alt="Akshar Featured Product"
-                    className="w-full h-auto object-contain hover:scale-105 transition-transform duration-1000 ease-out"
-                  />
-                </motion.div>
-
-                {/* Minimal Badges */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 1.2 }}
-                  className="absolute top-[10%] -right-12 p-5 rounded-3xl bg-white/80 backdrop-blur-xl border border-white shadow-2xl hidden md:flex items-center gap-4"
-                >
-                  <div className="w-12 h-12 rounded-2xl bg-cyan-50 flex items-center justify-center text-cyan-500">
-                    <ShieldCheck size={24} />
-                  </div>
-                  <div>
-                    <div className="font-black text-slate-800 text-sm tracking-tight">
-                      ISO-Certified Labs
-                    </div>
-                    <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                      Global Standards
-                    </div>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 1.4 }}
-                  className="absolute bottom-[20%] -left-12 p-5 rounded-3xl bg-white/80 backdrop-blur-xl border border-white shadow-2xl hidden md:flex items-center gap-4"
-                >
-                  <div className="w-12 h-12 rounded-2xl bg-rose-50 flex items-center justify-center text-rose-500">
-                    <Heart size={22} fill="currentColor" />
-                  </div>
-                  <div>
-                    <div className="font-black text-slate-800 text-sm tracking-tight">
-                      Kind to Fabric
-                    </div>
-                    <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                      Gentle Formula
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
-            </motion.div>
+          <div className="flex flex-col items-center justify-center gap-4 w-full px-2 max-w-sm">
+            <button className="hero-btn w-full py-5 rounded-full font-black text-[12px] uppercase tracking-widest bg-[#0F3B24] text-white hover:bg-[#166A40] active:scale-95 transition-all duration-300 shadow-xl shadow-[#0F3B24]/20 flex justify-center items-center gap-2">
+              Explore Products
+              <ArrowUpRight size={16} className="text-white shrink-0" />
+            </button>
+            <button className="hero-btn w-full py-5 rounded-full font-black text-[12px] uppercase tracking-widest bg-transparent border border-[#0F3B24]/10 text-[#0F3B24] hover:bg-white/50 active:scale-95 transition-all duration-300 backdrop-blur-sm shadow-sm">
+              Become Distributor
+            </button>
           </div>
         </div>
+
       </div>
+
+      {/* ── Floating Product Showcase - Anchored to Bottom Area ── */}
+      <div ref={imagesRef} className="absolute bottom-16 inset-x-0 h-[400px] pointer-events-none z-10">
+        <div className="relative w-full h-full max-w-4xl mx-auto">
+          
+          {/* Base Glow */}
+          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[70vw] h-[40vw] bg-white opacity-40 blur-[60px] rounded-full pointer-events-none" />
+
+          {floatingImages.map((img, i) => (
+            <div 
+              key={i} 
+              className={`floating-img-wrapper absolute z-${30 - i * 10}`}
+              style={{ bottom: img.bottom, left: img.left, right: img.right }}
+            >
+              {/* Static Rotation Layer */}
+              <div style={{ transform: `rotate(${img.rotate}deg)` }}>
+                {/* CSS Float Animation Layer */}
+                <div 
+                  className={`bg-white/50 p-2 md:p-3 backdrop-blur-xl border border-white/60 rounded-[24px] md:rounded-[32px] shadow-[0_20px_40px_rgba(10,66,38,0.12)] overflow-hidden ${img.size} flex items-center justify-center`}
+                  style={{ 
+                    animation: `float-${i % 2 === 0 ? 'slow' : 'fast'} ${6 + i}s ease-in-out infinite`,
+                    animationDelay: `${img.delay}s` 
+                  }}
+                >
+                  {/* Content Layer */}
+                  <div className="w-full h-full relative rounded-[16px] md:rounded-[24px] overflow-hidden bg-white flex items-center justify-center">
+                     <img 
+                       src={img.src} 
+                       alt={img.alt} 
+                       className="w-full h-full object-contain mix-blend-multiply scale-[1.05]" 
+                     />
+                     <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-white/70 pointer-events-none" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+
+        </div>
+      </div>
+      
+      {/* Aesthetic Scroll Indicator */}
+      <div className="absolute bottom-6 right-6 lg:right-12 text-[10px] font-black tracking-[0.4em] text-[#0A4226]/50 flex items-center gap-4 z-20">
+        <span>S C R O L L</span>
+        <div className="w-12 h-[1px] bg-[#0A4226]/30" />
+      </div>
+
     </section>
   );
 }

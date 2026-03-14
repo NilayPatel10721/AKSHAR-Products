@@ -118,8 +118,8 @@ export default function ProductCard({ product }) {
 
           <div className="absolute bottom-5 right-5 z-10 opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-500">
             <motion.div
-              className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-white"
-              whileHover={{ scale: 1.15, backgroundColor: "#e8563a" }}
+              className="w-10 h-10 rounded-full bg-[#1F2326] flex items-center justify-center text-white"
+              whileHover={{ scale: 1.15, backgroundColor: "#D35400" }}
               transition={{ duration: 0.2 }}
             >
               <ArrowUpRight size={18} />
@@ -134,11 +134,11 @@ export default function ProductCard({ product }) {
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-secondary">
                 {product.category}
               </span>
-              <h3 className="text-xl font-black text-slate-800 leading-tight group-hover:text-primary transition-colors duration-300">
+              <h3 className="text-xl font-black text-[#1F2326] leading-tight group-hover:text-[#D35400] transition-colors duration-300 relative inline-block">
                 {product.name}
               </h3>
             </div>
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-amber-50 border border-amber-100">
+            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-[#D35400]/5 border border-[#D35400]/20">
               <Star size={12} className="text-amber-500 fill-amber-500" />
               <span className="text-xs font-black text-amber-700">
                 {product.rating}
