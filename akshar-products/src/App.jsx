@@ -1,7 +1,7 @@
 import { useState, useMemo, useCallback, useRef, useEffect } from "react";
 import { useScrollReveal } from "./hooks/useScrollReveal";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, X, Play } from "lucide-react";
+import { ChevronRight, X } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -97,41 +97,73 @@ function PhilosophySection() {
 // ── Film / Video Reveal Section ──
 function BrandFilm() {
   const containerRef = useRef(null);
-  const imgRef = useRef(null);
+  const videoWrapperRef = useRef(null);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      gsap.to(imgRef.current, {
-        scale: 1, /* From scale 1.2 in CSS */
-        borderRadius: "48px",
-        ease: "none",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top bottom",
-          end: "center center",
-          scrub: 1,
+      // Wrapper Animation: Scale down and add rounded corners
+      gsap.fromTo(videoWrapperRef.current, 
+        { 
+          scale: 1.25, 
+          borderRadius: "0px" 
+        },
+        {
+          scale: 1,
+          borderRadius: "60px",
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 0.5,
+            force3D: true
+          }
         }
-      });
+      );
+
+      // Inner Video Parallax: Subtle scale and movement
+      gsap.fromTo(videoRef.current,
+        { scale: 1.2, y: "-10%" },
+        {
+          scale: 1,
+          y: "10%",
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true
+          }
+        }
+      );
     }, containerRef);
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={containerRef} className="py-10 md:py-20 bg-[#EAE6DF] relative overflow-hidden flex items-center justify-center min-h-[60vh] md:min-h-[80vh]">
-       <div className="w-full max-w-[90vw] h-[50vh] md:h-[70vh] relative z-10 shadow-[0_40px_100px_rgba(31,35,38,0.15)] flex items-center justify-center group overflow-hidden" ref={imgRef} style={{ scale: 1.2, transformOrigin: 'center center' }}>
+    <section ref={containerRef} className="py-20 md:py-32 bg-[#EAE6DF] relative overflow-hidden flex items-center justify-center min-h-[70vh] md:min-h-[100vh]">
+       <div 
+         className="w-full max-w-[92vw] h-[60vh] md:h-[80vh] relative z-10 shadow-[0_50px_120px_rgba(31,35,38,0.2)] flex items-center justify-center group overflow-hidden will-change-transform" 
+         ref={videoWrapperRef} 
+         style={{ transformOrigin: 'center center' }}
+       >
           
-          <img src="/img/WhatsApp Image 2026-01-19 at 2.10.09 PM (2).jpeg" alt="Akshar Formulation" className="w-full h-full object-cover filter saturate-[1.2] brightness-[0.85] transition-transform duration-[2s] group-hover:scale-105" />
+          <video 
+            ref={videoRef}
+            src="/Detergent_Ad_Video_Generation.mp4" 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            className="w-full h-full object-cover filter saturate-[1.1] brightness-[0.9] transition-opacity duration-1000 will-change-transform"
+          />
           
-          {/* Overlay gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1F2326]/80 via-transparent to-transparent mix-blend-multiply" />
-
-          {/* Play Button */}
-          <div className="absolute z-20 flex flex-col items-center cursor-pointer">
-             <div className="w-24 h-24 rounded-full border border-white/40 backdrop-blur-md flex items-center justify-center group-hover:bg-[#D35400] group-hover:border-[#D35400] transition-colors duration-500 hover:scale-110">
-                <Play fill="white" size={32} className="text-white ml-2" />
-             </div>
-             <p className="mt-6 text-[10px] font-black uppercase tracking-[0.4em] text-white">Watch The Process</p>
-          </div>
+          {/* Subtle Dynamic Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1F2326]/40 via-transparent to-[#1F2326]/20 mix-blend-multiply pointer-events-none" />
+          
+          {/* Glassmorphism Border Overlay for extra premium feel */}
+          <div className="absolute inset-0 border border-white/10 rounded-[inherit] pointer-events-none" />
        </div>
     </section>
   );

@@ -103,7 +103,7 @@ export default function Footer() {
                 <span className="leading-relaxed">
                   Phase 3, G.I.D.C Estate,
                   <br />
-                  Rajkot, GJ 360001
+                  Kapadvanj, Gujarat
                 </span>
               </div>
               <div className="flex items-center gap-4 justify-center md:justify-start">
